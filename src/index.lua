@@ -131,12 +131,12 @@ function Eurus:Notify(Txt, Time, Tag)
         end)
 end
 
-function Eurus:WriteFile(FileName, Data)
-	writefile(FileName, HttpService:JSONEncode(Data))
+function Eurus:WriteFile(FileName, dat)
+	writefile(FileName, HttpService:JSONEncode(dat))
 end
 
-function Eurus:SetScriptData(Data)
-    Eurus.ScriptData = Data;
+function Eurus:SetScriptData(dat)
+    Eurus.ScriptData = dat;
 end
 
 function Eurus:ReadFile(FileName)
@@ -144,7 +144,7 @@ function Eurus:ReadFile(FileName)
 end
 
 function Eurus:AppendData(FileName, Name, Val)
-    local ExistingData = ReadFile(FileName);
+    local ExistingData = Eurus:ReadFile(FileName);
     if ExistingData[Name] ~= nil then
         ExistingData[Name] = Val
     end
