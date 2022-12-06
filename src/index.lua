@@ -195,6 +195,20 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     end
 end)
 
+CB.Input.Changed:Connect(function()
+    local txt = CB.Input.Text;
+
+    for cmdName, cmdData in pairs(State.CommandInstances) do
+        if cmdName:lower():find(txt:lower()) then
+            CB.SmartPredict.Visible = true;
+            CB.SmartPredict.Text = cmdName:lower()
+            return
+        end
+    end
+
+    CB.SmartPredict.Visible = false;
+end)
+
 UpdateAdmins()
 
 local Eurus = {}
