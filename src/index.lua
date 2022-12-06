@@ -34,12 +34,15 @@ local UIState = {
 
 local UIFuncs = {
     Open = function()
+        CB.Input:CaptureFocus()
         CB:TweenPosition(UDim2.new(0.5,0,1.2,0),nil,nil, 0.5, true, function()
             UIState.Open = true;
         end)
     end;
 
     Close = function()
+        CB.Input.Text = ""
+        CB.Input:ReleaseFocus()
         CB:TweenPosition(UDim2.new(0.5,0,0.9,0),nil,nil, 0.5, true, function()
             UIState.Open = false;
         end)
