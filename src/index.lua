@@ -182,6 +182,16 @@ CB.Input.FocusLost:Connect(function(ep)
     end
 end)
 
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if input.KeyCode == Enum.KeyCode.Semicolon then
+        if UIState.Open then
+            UIFuncs.Close()
+        else
+            UIFuncs.Open()
+        end
+    end
+end)
+
 UpdateAdmins()
 
 local Eurus = {}
