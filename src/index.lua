@@ -182,6 +182,8 @@ CB.Input.FocusLost:Connect(function(ep)
     end
 end)
 
+UpdateAdmins()
+
 local Eurus = {}
 
 function Eurus:AddCommand(info, run)
